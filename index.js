@@ -7,12 +7,10 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// ✅ In-memory array (data stored here)
+
 let customers = [];
 
-/**
- * POST - Add customer
- */
+
 app.post("/customers", (req, res) => {
   const { name, email, phone } = req.body;
 
@@ -32,16 +30,12 @@ app.post("/customers", (req, res) => {
   res.status(201).json(newCustomer);
 });
 
-/**
- * GET - All customers
- */
+
 app.get("/customers", (req, res) => {
   res.json(customers);
 });
 
-/**
- * DELETE - Remove customer
- */
+
 app.delete("/customers/:id", (req, res) => {
   const { id } = req.params;
 
